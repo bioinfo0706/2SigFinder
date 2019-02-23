@@ -10,7 +10,7 @@ There are two main components to create the MTGIpick. The third component is opt
 Below we describe these components using the Matlab MTGI_example_script.m. Note that depending on the size of the data and parameters settings computing the MTGIpick can be demanding in terms of memory and CPU time.
 
 
-## MTGI_example_script.m. 
+## MTGI_example_script.m
 
 The code consists of four parts:
 
@@ -25,7 +25,7 @@ Below we describe these four parts in more detail.
 
 
 ### 1. Extract genomic signature
-#create the genomic signatures using a window and a sliding step
+# create the genomic signatures using a window and a sliding step
 [mer each_window_length]=cmer(Seq,window,slidelen,k);
 # mer contains the genomic signatures of each windows, and each_window_length denotes the length of each window.
 
@@ -38,7 +38,7 @@ Below we describe these four parts in more detail.
 # At a large scale, we investigate the variability of higher moments of each tetranucleotide and designe an iteration of large-scale statistical testing using dynamic signals from small-scale feature selection (ILST-DSFS), to identify large, multi-window segments.
 [predict_label_l GI_sequence_whole_position label_window]=ILSTDSFS(Seq,mer_moment,feature_size,sliding_step,Iteration,label_sequence_s,each_window_length);
 # Predicted values of each bases of the genome using a large-scale test, GI_sequence_whole_position denotes the start and end positions of the predicted multi-window segments, and label_window are the predicted labels of these windows. 
-```
+
 ### 4. Predicting genomic island using MTGIpick from the rest of the genome
 # Delete the predicted genomic islands and update all of windows of the genome; then, predict genomic island again using the MTGIpick algorithm
 [GI_sequence_left_position]=Semtgi(Seq,mer,mer_moment,label_window,feature_size,sig,Iteration,d_feature,sliding_step,each_window_length);
