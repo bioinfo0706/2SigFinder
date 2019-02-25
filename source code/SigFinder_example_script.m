@@ -21,7 +21,7 @@
 
 clear all;close all;clc;
 addpath(genpath(pwd));
-addpath(genpath([pwd '/MTGI/']));
+addpath(genpath([pwd '/2SigFinder/']));
 
 %% Path to fast convolution
    if ispc
@@ -82,7 +82,7 @@ addpath(genpath([pwd '/MTGI/']));
   GI_sequence_whole_position=[];
   [predict_label_l GI_sequence_whole_position label_window]=ILSTDSFS(Seq,mer_moment,feature_size,sliding_step,Iteration,label_sequence_s,each_window_length);
    
-%% Predict genomic island using MTGIpick from the rest of the genome
+%% Predict genomic island using 2SigFinder from the rest of the genome
  % Parameters
    feature_size=256; % Size of selected genomic signatures
    sig=0.05; % Standard deviation of the mean of the window scores to select windows whose scores are large enough to
