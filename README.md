@@ -1,23 +1,23 @@
-MTGIpick
+2SigFinder
 ===
-MTGIpick implements multiscale statistical algorithm to predict genomic islands from a single genome. It uses small-scale test with large-scale features to score small region deviating from the host and large-scale statistical test with small-scale features to identify multi-window segments for identification of genomic islands.
+2SigFinder implements multiscale statistical algorithm to predict genomic islands from a single genome. It uses small-scale test with large-scale features to score small region deviating from the host and large-scale statistical test with small-scale features to identify multi-window segments for identification of genomic islands.
 
-There are two main components to create the MTGIpick. The third component is optional.
+There are two main components to create the 2SigFinder. The third component is optional.
 1. Quantifying the compositional differences of each region from the host using IST-LFS algorithm. 
 2. Identifying some multi-window segments using ILST-DSFS algorithm.
 3. Refining the boundaries of  the genomic islands using MJSD-CG algorithm.
 
-Below we describe these components using the Matlab MTGI_example_script.m. Note that depending on the size of the data and parameters settings computing the MTGIpick can be demanding in terms of memory and CPU time.
+Below we describe these components using the Matlab SigFinder_example_script.m. Note that depending on the size of the data and parameters settings computing the 2SigFinder can be demanding in terms of memory and CPU time.
 
 
-## MTGI_example_script.m
+## SigFinder_example_script.m
 
 The code consists of four parts:
 
 1. Extract genomic signature
 2. Calculate the score of each window using the IST-LFS algorithm
 3. Identifying large segments using the ILST-DSFS alogrithm
-4. Predicting genomic island using MTGIpick from the rest of the genome
+4. Predicting genomic island using 2SigFinder from the rest of the genome
 5. Refining the boundaries of the predicted genomic islands using the MJSD-CG algorithm
 
 These four parts are run with an example genomic signal in the main script: msr_example_script.m.
@@ -42,8 +42,8 @@ At a large scale, we investigate the variability of higher moments of each tetra
 
 Predicted values of each bases of the genome using a large-scale test, GI_sequence_whole_position denotes the start and end positions of the predicted multi-window segments, and label_window are the predicted labels of these windows. 
 
-### 4. Predicting genomic island using MTGIpick from the rest of the genome
-Delete the predicted genomic islands and update all of windows of the genome; then, predict genomic island again using the MTGIpick algorithm
+### 4. Predicting genomic island using 2SigFinder from the rest of the genome
+Delete the predicted genomic islands and update all of windows of the genome; then, predict genomic island again using the 2SigFinder algorithm
 - [GI_sequence_left_position]=Semtgi(Seq,mer,mer_moment,label_window,feature_size,sig,Iteration,d_feature,sliding_step,each_window_length);
 
 GI_sequence_left_position denotes the start and end positions of the predicted genomic islands.
